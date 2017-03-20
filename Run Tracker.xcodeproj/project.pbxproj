@@ -15,8 +15,6 @@
 		96F3B2291E803597005A8E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F3B2271E803597005A8E87 /* LaunchScreen.storyboard */; };
 		96F3B2341E803597005A8E87 /* Run_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B2331E803597005A8E87 /* Run_TrackerTests.swift */; };
 		96F3B23F1E803597005A8E87 /* Run_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B23E1E803597005A8E87 /* Run_TrackerUITests.swift */; };
-		96F3B25E1E806F7B005A8E87 /* Run+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B25C1E806F7B005A8E87 /* Run+CoreDataClass.swift */; };
-		96F3B25F1E806F7B005A8E87 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B25D1E806F7B005A8E87 /* Run+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +49,6 @@
 		96F3B23A1E803597005A8E87 /* Run TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Run TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F3B23E1E803597005A8E87 /* Run_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run_TrackerUITests.swift; sourceTree = "<group>"; };
 		96F3B2401E803597005A8E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96F3B25C1E806F7B005A8E87 /* Run+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataClass.swift"; sourceTree = "<group>"; };
-		96F3B25D1E806F7B005A8E87 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +99,6 @@
 		96F3B21A1E803597005A8E87 /* Run Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				96F3B25C1E806F7B005A8E87 /* Run+CoreDataClass.swift */,
-				96F3B25D1E806F7B005A8E87 /* Run+CoreDataProperties.swift */,
 				96F3B21B1E803597005A8E87 /* AppDelegate.swift */,
 				96F3B21D1E803597005A8E87 /* ViewController.swift */,
 				96F3B21F1E803597005A8E87 /* Main.storyboard */,
@@ -270,9 +264,7 @@
 			files = (
 				96F3B2241E803597005A8E87 /* Run_Tracker.xcdatamodeld in Sources */,
 				96F3B21E1E803597005A8E87 /* ViewController.swift in Sources */,
-				96F3B25F1E806F7B005A8E87 /* Run+CoreDataProperties.swift in Sources */,
 				96F3B21C1E803597005A8E87 /* AppDelegate.swift in Sources */,
-				96F3B25E1E806F7B005A8E87 /* Run+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
