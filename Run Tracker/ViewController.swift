@@ -79,6 +79,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        lets us determine what kind of characters are allowed in the fields
+        let allowedCharacters = NSCharacterSet(charactersIn: "1234567890.")
+        switch textField {
+        case <#pattern#>:
+            <#code#>
+        default:
+            <#code#>
+        }
+        
     }
     
 //Add & Delete Buttons
