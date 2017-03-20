@@ -52,25 +52,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 //These functions determine the size and behavior of the pickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
+        return listOfRunNames.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        <#code#>
+        return listOfRunNames[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
+        let chosenRunName = listOfRunNames[row]
+        for run in listOfRuns {
+            if run.runname == chosenRunName {
+                let runPace = Double(run.runtime!)! / Double(run.rundistance!)!
+                lblRunNameDisplay.text = "Name: " + run.runname!
+                lblRunDistanceDisplay.text = "Distance: " + run.rundistance! + " km"
+                lblRunTimeDisplay.text = "Time: " + run.runtime! + " min (" + String(format: "%.2f", runPace) + "min/km"
+            }
+        }
     }
     
 //textField functions
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        <#code#>
 //        lets us determine what kind of characters are allowed in the fields
     }
     
