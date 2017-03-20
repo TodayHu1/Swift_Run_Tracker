@@ -24,6 +24,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //PICKER
     @IBOutlet weak var pkrRunPicker: UIPickerView!
     
+//Global Vars
+    var listOfRuns = [Run]()
+    var listOfRunNames = [String]()
+//    variable used to populate the picker
+    var managedObjectContext : NSManagedObjectContext!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,6 +40,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         txtRunName.delegate = self
         txtRunDistance.delegate = self
         txtRunTime.delegate = self
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        creates a delegate for us to use as an appDelegate 
         
     }
 
