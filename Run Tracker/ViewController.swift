@@ -42,6 +42,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         txtRunTime.delegate = self
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedObjectContext = appDelegate.persistentContainer.viewContext
 //        creates a delegate for us to use as an appDelegate 
         
     }
@@ -81,16 +82,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //        lets us determine what kind of characters are allowed in the fields
         let allowedCharacters = NSCharacterSet(charactersIn: "1234567890.")
         switch textField {
-        case <#pattern#>:
-            <#code#>
+        case txtRunTime, txtRunDistance:
+            if let _ = string.rangeOfCharacter(from: allowedCharacters as CharacterSet){
+                return true
+            }else {
+                return false
+            }
         default:
-            <#code#>
+            return true
         }
         
     }
     
 //Add & Delete Buttons
     @IBAction func pressAddButton(_ sender: UIButton) {
+        
     }
 
     @IBAction func pressDeleteButton(_ sender: UIButton) {
