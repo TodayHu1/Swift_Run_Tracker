@@ -84,6 +84,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        lets us determine what kind of characters are allowed in the fields
         let allowedCharacters = NSCharacterSet(charactersIn: "1234567890.")
+        //this if statement lets us edit txt when there's already something in the field
+        if string.isEmpty {
+            return true
+        }
         switch textField {
         case txtRunTime, txtRunDistance:
             if let _ = string.rangeOfCharacter(from: allowedCharacters as CharacterSet){
@@ -125,8 +129,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     @IBAction func pressDeleteButton(_ sender: UIButton) {
+        //selects the run to be deleted as the highlighted run
+        let runToDeleteName = pickerView(pkrRunPicker, titleForRow:         pkrRunPicker.selectedRow(inComponent: 0), forComponent: 0)
+        //this for loop goes through the listOfRunds and removes from the array any matching runname and the object it relates to
+        for run in listOfRuns {
+            if run.runname == runToDeleteName {
+                managedObjectContext.delete(run)
+                listOfRuns.removeAll()
+                listOfRunNames.removeAll()
+            }
+        }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Run could not be deleted")
+        }
+        fetchRuns()
+        self.pkrRunPicker.reloadAllComponents()
     }
     
+    //This is what populates the picker in the bottom
     func fetchRuns() {
         //NSFetchRequest always requires an explicit statement of what it needs to collect, in this case the Run entity
         let fetchRequest : NSFetchRequest<Run> = Run.fetchRequest()
