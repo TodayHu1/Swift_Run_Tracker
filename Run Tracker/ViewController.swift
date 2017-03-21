@@ -96,10 +96,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
 //Add & Delete Buttons
     @IBAction func pressAddButton(_ sender: UIButton) {
-        
+//        if statements checking if the run already exists or if any of the fields are empty
+        if !listOfRunNames.contains(txtRunName.text!) && !(txtRunName.text?.isEmpty)! && !(txtRunDistance.text?.isEmpty)! && !(txtRunTime.text?.isEmpty)!{
+            //creating a newRun object to hold the runs we save and setting the values of runname, rundistance, and runtime to equal what the user inputs in the txtFields
+            let newRun = NSEntityDescription.insertNewObject(forEntityName: "Run", into: managedObjectContext) as! Run
+            newRun.runname = txtRunName.text!
+            newRun.rundistance = txtRunDistance.text!
+            newRun.runtime = txtRunTime.text!
+            //saving the run into the managedObjectContext or sending an error message if the save doesn't work
+            do{
+                try managedObjectContext.save()
+                listOfRunNames.append(newRun.runname!)
+                listOfRuns.append(newRun)
+            } catch {
+                print("Run could not be saved")
+            }
+            //this will reload the picker to show the new run
+            self.pkrRunPicker.reloadAllComponents()
+        }
+        //clearing out the text fields once the object is saved
+        txtRunName.text?.removeAll()
+        txtRunDistance.text?.removeAll()
+        txtRunTime.text?.removeAll()
+
     }
 
     @IBAction func pressDeleteButton(_ sender: UIButton) {
+    }
+    
+    func fetchRuns() {
+        
     }
 }
 
