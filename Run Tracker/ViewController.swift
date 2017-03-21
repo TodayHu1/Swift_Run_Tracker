@@ -45,6 +45,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         managedObjectContext = appDelegate.persistentContainer.viewContext
 //        creates a delegate for us to use as an appDelegate 
         
+        //loads the saved runs when we open the app
+        fetchRuns()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,7 +128,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func fetchRuns() {
+        //NSFetchRequest always requires an explicit statement of what it needs to collect, in this case the Run entity
+        let fetchRequest : NSFetchRequest<Run> = Run.fetchRequest()
         
+        do {
+            listOfRuns = try managedObjectContext.fetch(fetchRequest)
+            for run in listOfRuns {
+                let runName = run.runname
+                listOfRunNames.append(runName!)
+            }
+        } catch {
+            print("Runs could not be fetched")
+        }
     }
 }
 
